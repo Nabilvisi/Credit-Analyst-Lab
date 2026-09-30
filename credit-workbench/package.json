@@ -1,1 +1,12 @@
-{"name":"credit-workbench","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node server.mjs","start":"node server.mjs","check":"node --check dist/app.js && node --check dist/model.js","test":"node --test tests/*.test.mjs"}}
+{
+  "name": "credit-workbench",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check dist/app.js && node --check dist/model.js && node --check dist/underwriting-model.js && node --check dist/underwriting-ui.js",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

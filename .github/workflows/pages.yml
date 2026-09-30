@@ -22,7 +22,10 @@ jobs:
         with:
           node-version: '24'
       - name: Check financial model
-        run: npm test
+        run: |
+          npm test
+          npm --prefix credit-workbench run check
+          npm --prefix credit-workbench test
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
@@ -34,3 +37,4 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+

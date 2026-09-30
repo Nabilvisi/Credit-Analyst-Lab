@@ -1,5 +1,11 @@
 # Credit Workbench
 
+Release 2.1 adds an institutional equipment-finance workflow alongside the corporate, consumer and issuer portfolio tools. Open **Deal structuring**, enter facility and operating inputs, compare scenarios, add existing facilities, reconcile bank turnover, spread historical statements, review group/contract risk, and complete **Committee proposal**. Export an editable Word memo, print to PDF, or save a JSON workspace backup. Excel and Word dependencies are vendored locally; no uploaded borrower data is sent to a service.
+
+Live dashboard: https://nabilvisi.github.io/Credit-Analyst-Lab/dashboard/
+
+See [RELEASE-2.1.md](RELEASE-2.1.md) for feature coverage, calculation choices, validation evidence and operating limits.
+
 A browser-based analyst workspace covering corporate / SME lending, consumer loans, and issuer credit. This is a standalone addition to Credit Analyst Lab.
 
 ## Run
