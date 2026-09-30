@@ -1,0 +1,1 @@
+{"name":"credit-analyst-lab","version":"1.0.0","private":true,"type":"module","scripts":{"build":"python3 scripts/prepare_data.py && node scripts/analyze.mjs && python3 scripts/report.py && python3 scripts/build.py","test":"node tests/model.test.mjs","serve":"python3 -m http.server 8000 --directory public"}}

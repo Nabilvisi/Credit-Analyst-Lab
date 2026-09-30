@@ -1,0 +1,12 @@
+import {writeFileSync} from 'node:fs';
+import {evaluate,PRESETS,breakEvenUtilization,sensitivity} from '../public/model.js';
+const scenarios=Object.fromEntries(Object.entries(PRESETS).map(([k,v])=>[k,evaluate(v)]));
+const resized=Object.fromEntries(Object.entries(PRESETS).map(([k,v])=>[k,evaluate({...v,principal:16})]));
+const out={scenarios,resized,breakEven:breakEvenUtilization(),sensitivity:sensitivity(),note:'Synthetic project and borrower assumptions. Not a calibrated credit score or KAF policy.'};
+for(const dest of ['data/processed/analysis.json','public/analysis.json'])writeFileSync(dest,JSON.stringify(out,null,2)+'\n');
+const fields=['month','opening','interest','principal','payment','closing','cfads','dscr','cashAfterDebt'];
+const csv=[fields.join(','),...scenarios.base.schedule.map(r=>fields.map(k=>r[k]).join(','))].join('\n')+'\n';
+for(const dest of ['data/processed/amortization.csv','public/amortization.csv'])writeFileSync(dest,csv);
+const metrics=['revenue','ebitda','cfads','debtService','dscr','firstYearDscr','wcShock','reserve','liquidityHeadroom','ltv','lgd','expectedLoss'];
+writeFileSync('public/scenarios.csv',['metric,requested_base,requested_downside,requested_severe,resized_base,resized_downside,resized_severe',...metrics.map(k=>[k,...Object.values(scenarios).map(x=>x[k]),...Object.values(resized).map(x=>x[k])].join(','))].join('\n')+'\n');
+console.log(JSON.stringify({baseDSCR:scenarios.base.dscr,downsideDSCR:scenarios.downside.dscr,resizeDownside:resized.downside.dscr,maxDownsidePrincipal:scenarios.downside.maxPrincipal,breakeven:out.breakEven},null,2));

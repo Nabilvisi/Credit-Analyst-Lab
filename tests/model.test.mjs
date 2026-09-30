@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {evaluate,payment,PRESETS,breakEvenUtilization} from '../public/model.js';
+test('amortization repays exactly and reconciles all principal',()=>{for(const s of Object.values(PRESETS)){const r=evaluate(s);assert.ok(r.schedule.at(-1).closing<1e-9);assert.ok(Math.abs(r.schedule.reduce((sum,x)=>sum+x.principal,0)-r.assumptions.principal)<1e-9);assert.ok(r.schedule.every(x=>Math.abs(x.opening-x.principal-x.closing)<1e-9));}});
+test('zero-interest loan and invalid values are handled',()=>{assert.equal(payment(24,0,48),.5);assert.throws(()=>evaluate({utilization:110}));assert.throws(()=>evaluate({principal:NaN}));});
+test('downside lowers cash capacity and collection delays affect liquidity separately',()=>{const b=evaluate();const d=evaluate(PRESETS.downside);assert.ok(d.dscr<b.dscr);assert.ok(d.firstYearDscr<d.dscr);assert.equal(evaluate({dso:75}).dscr,b.dscr);assert.ok(evaluate({dso:75}).firstYearDscr<b.firstYearDscr);});
+test('resized facility meets illustrative downside steady-state floor',()=>{assert.ok(evaluate({...PRESETS.downside,principal:16}).dscr>=1.1);assert.ok(evaluate(PRESETS.downside).dscr<1.1);});
+test('reverse stress finds covenant boundary and loss is bounded',()=>{const u=breakEvenUtilization();assert.ok(Math.abs(evaluate({utilization:u}).dscr-1.25)<1e-8);for(const recovery of [0,35,55,100]){const r=evaluate({recovery});assert.ok(r.lgd>=0&&r.lgd<=1);assert.ok(r.expectedLoss>=0&&r.expectedLoss<=r.assumptions.principal);}});

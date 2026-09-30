@@ -1,0 +1,22 @@
+[
+  {
+    "file": "brent-daily.csv",
+    "repository": "datasets/oil-prices",
+    "blob_sha": "885a2e1b92783412c68c8d714b07bb6047c49002",
+    "sha256": "f68b87afc2e990d7e824e6f504d22a0e650a87fdef5f758033241b2490460ecf",
+    "upstream": "https://www.eia.gov/dnav/pet/hist/RBRTED.htm",
+    "unit": "USD/barrel",
+    "license": "PDDL mirror; EIA public data",
+    "retrieved": "2026-09-30"
+  },
+  {
+    "file": "gdp.csv",
+    "repository": "datasets/gdp",
+    "blob_sha": "473bab567e012ac3fc079f709a47ebd2a6bf0752",
+    "sha256": "bb704e8ce2468719ae9f7d9c435091aac63266b95f82ce22b8d39d07e7008eab",
+    "upstream": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=ID",
+    "unit": "current USD",
+    "license": "PDDL mirror; World Bank CC BY 4.0",
+    "retrieved": "2026-09-30"
+  }
+]
