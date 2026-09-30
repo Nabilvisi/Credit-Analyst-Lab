@@ -1,0 +1,30 @@
+{
+  "retrieved_at": "2026-09-30",
+  "source": "World Bank World Development Indicators",
+  "indicators": [
+    {
+      "code": "NY.GDP.MKTP.KD.ZG",
+      "label": "GDP growth (annual %)",
+      "value": 5.10808904438025,
+      "year": "2025",
+      "country": "Indonesia",
+      "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=ID"
+    },
+    {
+      "code": "FP.CPI.TOTL.ZG",
+      "label": "Inflation, consumer prices (annual %)",
+      "value": 1.9133344329508,
+      "year": "2025",
+      "country": "Indonesia",
+      "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=ID"
+    },
+    {
+      "code": "FR.INR.LEND",
+      "label": "Lending interest rate (%)",
+      "value": 8.50158323159017,
+      "year": "2025",
+      "country": "Indonesia",
+      "url": "https://data.worldbank.org/indicator/FR.INR.LEND?locations=ID"
+    }
+  ]
+}
