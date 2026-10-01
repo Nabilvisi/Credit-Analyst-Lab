@@ -1,10 +1,15 @@
-# Vendored browser dependencies
+# Pinned browser dependencies
 
-These local modules are loaded only when Excel or Word import/export is used. Borrower files are never sent to their publishers.
+Runtime modules are local and loaded when their features are used. Dependencies do not receive uploaded borrower files. Optional AI requests are dispatched separately with explicit provider consent.
 
-- SheetJS Community Edition 0.20.3: downloaded from the authoritative https://cdn.sheetjs.com/xlsx-0.20.3/package/xlsx.mjs. Apache-2.0; full license in SheetJS-LICENSE.txt. Documentation: https://docs.sheetjs.com/docs/getting-started/installation/standalone/.
-- docx 9.6.1: copied from the bundled Codex dependency runtime, dist/index.mjs. MIT; license in docx-LICENSE.txt. Documentation: https://docx.js.org/.
+- SheetJS CE 0.20.3: Apache-2.0; SheetJS-LICENSE.txt; https://cdn.sheetjs.com/xlsx-0.20.3/package/xlsx.mjs
+- docx 9.6.1: MIT; docx-LICENSE.txt; bundled dependency, https://docx.js.org/
+- PDF.js 5.6.205: Apache-2.0; pdfjs-LICENSE.txt; npm pdfjs-dist
+- Orama 3.1.18: BSD-2-Clause; orama-LICENSE.txt; npm @orama/orama
+- Chart.js 4.5.1: MIT; chartjs-LICENSE.txt; npm chart.js
+- PapaParse 5.5.3: MIT; papaparse-LICENSE.txt; npm papaparse
+- Chart.js color dependency 0.3.4: MIT; color-LICENSE.txt; npm @kurkle/color
 
-Do not substitute unpinned remote runtime imports. See vendor-manifest.json for SHA-256 verification hashes.
+Modules are minified with esbuild 0.28.2. Production uses no remote runtime imports. SHA-256 hashes in vendor-manifest.json are checked by npm run check and deployment CI.
 
-Modules are minified with esbuild 0.28.2; pinned versions and complete license notices are retained.
+To rebuild risk/PDF modules: install the pinned build-tools/pnpm-lock.yaml dependencies, run node build-vendor.mjs from build-tools, then run node scripts/update-vendor-manifest.mjs from the application directory. Original SheetJS/docx modules are independently pinned and retained. Preserve all licenses when regenerating.

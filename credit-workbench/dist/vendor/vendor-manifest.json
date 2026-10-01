@@ -1,8 +1,22 @@
 {
   "docx.mjs": {
+    "version": "docx 9.6.1",
     "sha256": "b620f825f37928e3135465864ac8bf39cf8297e72eeb78292463de57ea572f05"
   },
   "xlsx.mjs": {
+    "version": "SheetJS 0.20.3",
     "sha256": "d9e8757df9949d3a38565e0faae0a0b71b1d8dbf6d01d8cd544866a2396c98e7"
+  },
+  "pdf.mjs": {
+    "version": "PDF.js 5.6.205",
+    "sha256": "6941ba9b352ea15bf756c270b8409a28f74ed37531010b26fe624db31cc1b28c"
+  },
+  "pdf.worker.mjs": {
+    "version": "PDF.js 5.6.205",
+    "sha256": "fa5f3664a12d65fb918cb635b197554604ecb5149524328b82125eb7a3f3a858"
+  },
+  "risk-libraries.mjs": {
+    "version": "Orama 3.1.18; Chart.js 4.5.1; PapaParse 5.5.3; @kurkle/color 0.3.4",
+    "sha256": "fc1ccf9acf01e2c45f9e0264f21ffb2e0a27550d0f39c3d8d0314df28fdfa3d5"
   }
 }

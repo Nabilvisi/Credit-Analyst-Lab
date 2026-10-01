@@ -1,6 +1,10 @@
 # Credit Workbench
 
-Release 2.1 adds an institutional equipment-finance workflow alongside the corporate, consumer and issuer portfolio tools. Open **Deal structuring**, enter facility and operating inputs, compare scenarios, add existing facilities, reconcile bank turnover, spread historical statements, review group/contract risk, and complete **Committee proposal**. Export an editable Word memo, print to PDF, or save a JSON workspace backup. Excel and Word dependencies are vendored locally; no uploaded borrower data is sent to a service.
+Release **5.1** adds **Collateral deficit**, **Legal diligence**, **Monte Carlo risk**, and a **Risk copilot** drawer. Run 5,000 seeded trials, review a shaded recovery gap and full-curve equity cure, record CP/CS evidence, and retrieve PDF/text clauses with page citations. Local analysis works without a key. Optional Gemini/OpenAI/Claude requests use a session-only personal key and explicit consent to send context. Encrypted backup/restore is available alongside ordinary JSON export.
+
+See [RELEASE-5.1.md](RELEASE-5.1.md) for requirements, corrections, assumptions and verification. TypeScript declarations are in `dist/workspace-contracts.d.ts`. Existing collateral values migrate unchanged from 2.1; new legal templates start unverified.
+
+Release 2.1 adds an institutional equipment-finance workflow alongside the corporate, consumer and issuer portfolio tools. Open **Deal structuring**, enter facility and operating inputs, compare scenarios, add existing facilities, reconcile bank turnover, spread historical statements, review group/contract risk, and complete **Committee proposal**. Export an editable Word memo, print to PDF, or save a JSON workspace backup. Excel and Word dependencies are vendored locally. Optional BYOK AI sharing was added in release 5.1 and is disclosed separately.
 
 Live dashboard: https://nabilvisi.github.io/Credit-Analyst-Lab/dashboard/
 
@@ -43,7 +47,7 @@ DSCR is CFADS / annual debt service. Net debt subtracts cash. Ratios require a p
 
 Corporate stress changes revenue and EBITDA margin, scales CFADS with EBITDA, and assumes all debt immediately reprices. Consumer stress holds payments constant. Bond pricing discounts annual coupons and principal; it omits accrued interest, options and default adjustment. Screening limits are analyst-configurable assumptions, not automatically contractual covenants. Memos remain drafts requiring independent review.
 
-This version supports a personal browser workspace. It does not provide team access controls, a server database, immutable audit history, live bureau integration, statement spreading from PDFs, or automated credit approval. Browser local storage is not encrypted by this application; use approved data handling practices for confidential records. The app makes no network requests containing uploaded records.
+This version supports a personal browser workspace. It does not provide team access controls, a server database, immutable audit history, live bureau integration, statement spreading from PDFs, or automated credit approval. Browser local storage is not encrypted by this application; use approved data handling practices for confidential records. Local tools process uploaded records in the browser. Optional, explicitly authorized BYOK requests send calculated case context and retrieved excerpts to the selected AI provider.
 
 ## Public data
 
