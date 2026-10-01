@@ -36,6 +36,8 @@ One browser acceptance run measured approximately 12.1 ms for synchronous slider
 
 Provider adapters were validated with mocked transport without paid live calls. Account/model access and browser CORS support are user-dependent. This remains a personal workspace with no shared login, server database, immutable audit service, calibrated rating model or production loan servicing.
 
+Final deployed-site acceptance: all 22 workflow checks passed on GitHub Pages, including PDF extraction, the actual Monte Carlo worker and chart, encrypted restore, and consent enforcement with mocked provider transport. All 54 automated tests, application syntax checks and pinned vendor checksums passed. At a 390 × 844 viewport, named mobile navigation opened legal diligence and the page had no horizontal overflow. The browser test waits for asynchronous chart initialization before asserting readiness.
+
 ## Privacy and portability
 
 Autosave remains unencrypted in localStorage/IndexedDB. Encrypted downloaded backups use AES-256-GCM, PBKDF2-SHA256 with 250,000 iterations, and random salt/nonce. Wrong passwords and altered ciphertext fail before replacement. Passwords, provider keys and chat history are session-only and excluded from exports. No password recovery service exists. Extracted document text is backed up; original PDF files are not retained.
